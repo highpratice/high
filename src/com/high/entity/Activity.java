@@ -28,8 +28,20 @@ public class Activity {
     private String creatorLocationId;
 
     private Float distance;
+    
+    
+    private Category category;
+    
 
-    public String getActivityId() {
+    public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+
+	public String getActivityId() {
         return activityId;
     }
 

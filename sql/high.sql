@@ -115,7 +115,7 @@ alter table t_participate add constraint FK_Reference_7 foreign key (activity_id
 alter table t_user add constraint FK_Reference_1 foreign key (location_id)
       references t_location (location_id) on delete restrict on update restrict;
 
-/*=====新建账号，并赋权限。统一一下用户名跟密码，方便使用=====*/
-INSERT INTO mysql.user(HOST,USER,PASSWORD) VALUES('localhost','high',PASSWORD('high'));
+/*=====新建账号，并赋权限。统一一下用户名跟密码，方便使用=====INSERT INTO mysql.user(HOST,USER,PASSWORD) VALUES('localhost','high',PASSWORD('high'));*/
+create user 'high'@'localhost' identified by 'high'
 FLUSH PRIVILEGES;
 GRANT ALL PRIVILEGES ON high.* TO high@localhost IDENTIFIED BY 'high';
