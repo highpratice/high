@@ -2,6 +2,8 @@ package com.high.service;
 
 import java.util.List;
 
+import com.high.entity.Category;
+
 public interface CategoryService {
 	
 	/**
@@ -15,5 +17,5 @@ public interface CategoryService {
 	 * @param name
 	 * @return
 	 */
-	List<String> findSecCateNameByTopCateName(String name) throws IllegalArgumentException;
+	List<Category> findSecCateByTopCateName(String name) throws IllegalArgumentException;
 }

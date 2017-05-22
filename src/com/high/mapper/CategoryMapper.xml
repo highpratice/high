@@ -6,7 +6,7 @@
 		SELECT top_category FROM t_category GROUP BY top_category; 
 	</select>
 	
-	<select id="findSecCateNameByTopCateName" resultType="string" parameterType="string">
-		SELECT secondary_category FROM t_category WHERE top_category = #{topCategory};
+	<select id="findSecCateByTopCateName" resultType="Category" parameterType="string">
+		SELECT * FROM t_category WHERE top_category = #{topCategory};
 	</select>
 </mapper>

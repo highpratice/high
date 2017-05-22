@@ -13,8 +13,8 @@
 		http://www.springframework.org/schema/aop/spring-aop-3.2.xsd 
 		http://www.springframework.org/schema/tx 
 		http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
-	<context:component-scan base-package="cn.itcast"></context:component-scan>
-	<mvc:annotation-driven>
+	<context:component-scan base-package="com.high"></context:component-scan>
+	<mvc:annotation-driven conversion-service="conversionService">
 		<mvc:message-converters register-defaults="true">
 			<!--responsebody返回处理 -->
 			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
@@ -26,6 +26,8 @@
 			</bean>
 		</mvc:message-converters>
 	</mvc:annotation-driven>
+	<mvc:resources location="/resource/css/" mapping="/css/**" />
+	<mvc:resources location="/resource/js/" mapping="/js/**" />
 
 	<mvc:default-servlet-handler />
 
@@ -49,7 +51,18 @@
 			</value>
 		</property>
 		<property name="order" value="0" /><!-- 优先级 -->
-
+	</bean>
+	
+	<!-- 配置时间 Formatter -->
+	<bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+		<property name="formatters">
+			<set>
+				<bean class="com.high.formatter.WebDateFormatter">
+<!-- 					<constructor-arg type="java.lang.String" value="MM/DD/YYYY hh:mm:ss"/> -->
+						<constructor-arg type="java.lang.String" value="YYYY-MM-DD hh:mm:ss"/>
+				</bean>
+			</set>
+		</property>
 	</bean>
 	<import resource="classpath:spring/applicationContext.xml" />
 </beans>

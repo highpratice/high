@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.high.entity.Category;
 import com.high.mapper.CategoryMapper;
 import com.high.service.CategoryService;
 @Service("categoryService")
@@ -19,11 +20,12 @@ public class CategoryServiceImpl implements CategoryService {
 	}
 
 	@Override
-	public List<String> findSecCateNameByTopCateName(String name) {
+	public List<Category> findSecCateByTopCateName(String name) {
 		if(name == null || "".equals(name)){
 			throw new IllegalArgumentException("输入分类为空！");
 		}
-		return categoryMapper.findSecCateNameByTopCateName(name);
+		return categoryMapper.findSecCateByTopCateName(name);
+		 
 	}
 
 }

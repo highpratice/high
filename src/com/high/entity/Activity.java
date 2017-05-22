@@ -27,12 +27,30 @@ public class Activity {
 
     private String creatorLocationId;
 
-    private Float distance;
+    private Double distance;
     
+    private Location activityLocation;
+    private Location creatorLocation;
     
-    private Category category;
-    
+    public Location getActivityLocation() {
+		return activityLocation;
+	}
 
+	public void setActivityLocation(Location activityLocation) {
+		this.activityLocation = activityLocation;
+	}
+
+	public Location getCreatorLocation() {
+		return creatorLocation;
+	}
+
+	public void setCreatorLocation(Location creatorLocation) {
+		this.creatorLocation = creatorLocation;
+	}
+
+	private Category category;
+    
+    
     public Category getCategory() {
 		return category;
 	}
@@ -137,11 +155,12 @@ public class Activity {
         this.creatorLocationId = creatorLocationId == null ? null : creatorLocationId.trim();
     }
 
-    public Float getDistance() {
-        return distance;
-    }
+	public Double getDistance() {
+		return distance;
+	}
 
-    public void setDistance(Float distance) {
-        this.distance = distance;
-    }
+	public void setDistance(Double distance) {
+		this.distance = distance;
+	}
+
 }
