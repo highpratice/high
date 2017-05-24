@@ -1,6 +1,8 @@
 package com.high.service;
 
 import com.high.entity.Activity;
+import com.high.entity.SearchActivityQueryModel;
+import com.high.entity.SearchActivityResultModel;
 
 public interface ActivityService {
 
@@ -9,5 +11,12 @@ public interface ActivityService {
 	 * @param activity
 	 */
 	void createActivity(Activity activity);
+
+	/**
+	 * 搜索活动
+	 * @param queryModel
+	 * @return
+	 */
+	SearchActivityResultModel searchActivity(SearchActivityQueryModel queryModel);
 
 }
